@@ -7,7 +7,7 @@ class SnakePart {
     this.y = y;
   }
 }
-let speed = 13;
+let speed = 5;
 
 let tileCount = 20;
 let tileSize = canvas.width / tileCount - 2;
@@ -41,21 +41,74 @@ function drawGame() {
   }
 
   clearScreen();
-
   checkAppleCollision();
   drawApple();
   drawSnake();
-
   drawScore();
-
-  if (score > 5) {
+  
+//speed increase
+  if (score > 1) {
+    speed = 6;
+  }
+  if (score > 2) {
+    speed = 7;
+  }
+  if (score > 3) {
+    speed = 8;
+  }
+  if (score > 4) {
     speed = 9;
   }
-  if (score > 10) {
+  if (score > 5) {
+    speed = 10;
+  }
+  if (score > 6) {
     speed = 11;
   }
+  if (score > 7) {
+    speed = 12;
+  }
+  if (score > 8) {
+    speed = 13;
+  }
+  if (score > 9) {
+    speed = 14;
+  }
+  if (score > 10) {
+    speed = 15;
+  }
+  if (score > 11) {
+    speed = 16;
+  }
+  if (score > 12) {
+    speed = 17;
+  }
+  if (score > 13) {
+    speed = 18;
+  }
+  if (score > 14) {
+    speed = 19;
+  }
+  if (score > 15) {
+    speed = 20;
+  }
+  if (score > 16) {
+    speed = 21;
+  }
+  if (score > 17) {
+    speed = 22;
+  }
+  if (score > 18) {
+    speed = 23;
+  }
+  if (score > 19) {
+    speed = 24;
+  }
+  if (score > 20) {
+    speed = 25;
+  }
 
-  setTimeout(drawGame, 1000 / speed);
+  setTimeout(drawGame, 700 / speed);
 }
 
 function isGameOver() {
@@ -65,7 +118,7 @@ function isGameOver() {
     return false;
   }
 
-
+//head collision 
   if (headX < 0) {
     gameOver = true;
   } else if (headX === tileCount) {
@@ -83,7 +136,7 @@ function isGameOver() {
       break;
     }
   }
-
+//gameover
   if (gameOver) {
     ctx.fillStyle = "white";
     ctx.font = "50px Verdana";
@@ -190,6 +243,6 @@ function keyDown(event) {
     inputsXVelocity = 1;
  
   }
-}
 
+}
 drawGame();
